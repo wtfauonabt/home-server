@@ -1,0 +1,6 @@
+[submodule "docker/docker-compose-library"]
+	path = docker/docker-compose-library
+	url = https://github.com/wtfauonabt/docker-compose-library
+[submodule "docker/docker-build-library"]
+	path = docker/docker-build-library
+	url = https://github.com/wtfauonabt/docker-build-library
