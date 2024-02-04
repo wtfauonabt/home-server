@@ -37,3 +37,6 @@ Thumbs.db
 
 # Environment Variables
 .env
+
+# Ignore Mount files
+mount/
