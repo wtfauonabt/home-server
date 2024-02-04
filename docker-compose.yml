@@ -1,0 +1,65 @@
+version: "3.9"
+######################################################
+## Service START  ####################################
+######################################################
+services:
+    ######################################################
+    ## Portainer #########################################
+    ######################################################
+    portainer:
+        extends:
+            file: ${COMPOSE_BASE_PATH}/portainer.yml
+            service: portainer-ce
+        ports:
+            - 9000:9000
+        volumes:
+            - ${LOCAL_TIME_PATH:-/usr/bin/localtime}:/etc/localtime:ro
+            - ${DOCKER_SOCK_PATH:-/var/run/docker.sock}:/var/run/docker.sock:ro
+            - portainer_data:/data
+            - ${MOUNT_BASE_PATH:-./mount}/portainer:/mount
+            - ${COMPOSE_BASE_PATH:-./compose}:/compose
+            - ${BUILD_BASE_PATH:-./build}:/build
+        networks:
+            - env-network
+            # - swarm-overlay # Docker Swarm Overlay Network
+    ############################################
+    ### NGINX PROXY MANAGER ####################
+    ############################################
+    # nginx:
+    #     extends:
+    #         file: ${COMPOSE_BASE_PATH}/nginx.yml
+    #         service: nginx-proxy-manager 
+
+######################################################
+## Service END  ######################################
+######################################################
+
+######################################################
+## Volumes START #####################################
+######################################################
+
+volumes:
+    portainer_data:
+        driver: local
+    nginx_data:
+        driver: local
+    letsencrypt:
+        driver: local
+
+######################################################
+## Volumes END  ######################################
+######################################################
+
+######################################################
+## Networks START ####################################
+######################################################
+networks:
+    env-network:
+        name: ${NETWORK_NAME}
+    # Docker Swarm Overlay Network
+    # swarm-overlay:
+    #     name: home-swarm-overlay
+    #     driver: overlay
+######################################################
+## Networks END  #####################################
+######################################################
