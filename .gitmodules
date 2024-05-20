@@ -4,3 +4,21 @@
 [submodule "docker/docker-build-library"]
 	path = docker/docker-build-library
 	url = https://github.com/wtfauonabt/docker-build-library
+[submodule "docker/deployment/proxy"]
+	path = docker/deployment/proxy
+	url = git@github.com:wtfauonabt/proxy.git
+[submodule "docker/deployment/secret"]
+	path = docker/deployment/secret
+	url = git@github.com:wtfauonabt/secret.git
+[submodule "docker/deployment/ai"]
+	path = docker/deployment/ai
+	url = git@github.com:wtfauonabt/ai.git
+[submodule "docker/deployment/auth"]
+	path = docker/deployment/auth
+	url = git@github.com:wtfauonabt/auth.git
+[submodule "docker/deployment/cloud"]
+	path = docker/deployment/cloud
+	url = git@github.com:wtfauonabt/cloud.git
+[submodule "docker/deployment/dns"]
+	path = docker/deployment/dns
+	url = git@github.com:wtfauonabt/dns.git
